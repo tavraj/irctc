@@ -2,6 +2,10 @@ from .. import db, bcrypt
 
 
 class User(db.Model):
+    """
+        User Model for storing user related details
+    """
+
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.Text)
     email = db.Column(db.String(255), unique=True, nullable=False)

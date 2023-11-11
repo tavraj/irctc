@@ -3,6 +3,7 @@ from flask_restx import Resource
 
 from ..util.dto import UserDto
 from ..service.user_service import *
+from ..util.decorator import admin_required
 
 api = UserDto.api
 _user = UserDto.user
@@ -11,6 +12,7 @@ _user = UserDto.user
 @api.route('/')
 class UserList(Resource):
     @api.doc('List of registered users')
+    @admin_required()
     @api.marshal_list_with(_user, envelope='data')
     def get(self):
         return get_all_users()
