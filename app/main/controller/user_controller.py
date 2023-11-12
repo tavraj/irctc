@@ -1,6 +1,7 @@
 from flask import request
 from flask_restx import Resource
 
+from .. import cache
 from ..util.dto import UserDto
 from ..service.user_service import *
 from ..util.decorator import admin_required
@@ -14,6 +15,7 @@ class UserList(Resource):
     @api.doc('List of registered users')
     @admin_required()
     @api.marshal_list_with(_user, envelope='data')
+    @cache.cached()
     def get(self):
         return get_all_users()
 
@@ -31,6 +33,7 @@ class UserList(Resource):
 class User(Resource):
     @api.doc("get a user")
     @api.marshal_with(_user)
+    @cache.cached()
     def get(self, public_id):
         user = get_a_user(public_id)
         if user:

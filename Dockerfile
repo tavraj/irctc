@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 RUN pip install --no-cache-dir -r requirements.txt
 
+ENV PROMETHEUS_MULTIPROC_DIR=/tmp
 EXPOSE 5000
 
-COPY uwsgi.ini /app/uwsgi.ini
 CMD ["uwsgi", "--ini", "uwsgi.ini"]
