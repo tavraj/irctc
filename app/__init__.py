@@ -4,13 +4,14 @@ from flask import Blueprint
 from .main.controller.user_controller import api as user_ns
 from .main.controller.auth_controller import api as auth_ns
 
-blueprint = Blueprint('api', __name__)
+blueprint = Blueprint('api', __name__, url_prefix='/api')
 
 api = Api(
     blueprint,
     title="Pikachu Server",
     version='1.0',
-    description='owned by om-divine'
+    description='owned by om-divine',
+    doc='/doc'
 )
 
 api.add_namespace(user_ns, path='/user')
