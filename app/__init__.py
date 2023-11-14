@@ -10,7 +10,7 @@ api = Api(
     blueprint,
     title="Pikachu Server",
     version='1.0',
-    description='owned by om-divine',
+    description='flask api',
     doc='/doc'
 )
 

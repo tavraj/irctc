@@ -5,9 +5,9 @@ from datetime import timedelta
 class Config:
     SQLALCHEMY_DATABASE_URI = os.environ.get(
         'SQLALCHEMY_DATABASE_URI',
-        'postgresql://om-divine:password@localhost:5432/netra'
+        'postgresql://ash:pokemon@localhost:5432/pikachu'
     )
-    JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY', 'om-divine')
+    JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY', 'ash')
     # JWT_TOKEN_LOCATION = ['cookies']
     JWT_ACCESS_TOKEN_EXPIRES = timedelta(seconds=30)
     PROPAGATE_EXCEPTIONS = True

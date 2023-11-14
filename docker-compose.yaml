@@ -9,10 +9,10 @@ services:
     depends_on:
       - postgres-db
     environment:
-      - FLASK_APP=server.py
+      - FLASK_APP=pikachu.py
       - FLASK_RUN_HOST=0.0.0.0
       - FLASK_RUN_PORT=5000
-      - SQLALCHEMY_DATABASE_URI=postgresql://om-divine:password@postgres-db:5432/netra
+      - SQLALCHEMY_DATABASE_URI=postgresql://ash:password@postgres-db:5432/pikachu
       - ENV=production
     volumes:
       - ./:/app
@@ -22,18 +22,18 @@ services:
   postgres-db:
     image: postgres:16.0-alpine3.18
     environment:
-      POSTGRES_USER: om-divine
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: netra
+      POSTGRES_USER: ash
+      POSTGRES_PASSWORD: pokemon
+      POSTGRES_DB: pikachu
     ports:
       - "5432:5432"
     volumes:
-      - om-divine-postgres-data:/var/lib/postgresql/data
+      - postgres-data:/var/lib/postgresql/data
     networks:
       - app-network
 
 volumes:
-  om-divine-postgres-data:
+  postgres-data:
     driver: local
 networks:
   app-network:
