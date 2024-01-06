@@ -18,7 +18,7 @@ cache = Cache()
 metrics = PrometheusMetrics.for_app_factory()
 if os.environ.get('ENV') == 'production':
     metrics = UWsgiPrometheusMetrics.for_app_factory()
-metrics.info(name='Pikachu', description='by om divine', version='1.0')
+metrics.info(name='Aladdin', description='Aladdin API', version='1.0')
 
 
 def create_app(config_name):

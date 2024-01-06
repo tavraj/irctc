@@ -9,10 +9,10 @@ services:
     depends_on:
       - postgres-db
     environment:
-      - FLASK_APP=pikachu.py
+      - FLASK_APP=server.py
       - FLASK_RUN_HOST=0.0.0.0
       - FLASK_RUN_PORT=5000
-      - SQLALCHEMY_DATABASE_URI=postgresql://ash:password@postgres-db:5432/pikachu
+      - SQLALCHEMY_DATABASE_URI=postgresql://ash:password@postgres-db:5432/aladdin
       - ENV=production
     volumes:
       - ./:/app
@@ -24,7 +24,7 @@ services:
     environment:
       POSTGRES_USER: ash
       POSTGRES_PASSWORD: pokemon
-      POSTGRES_DB: pikachu
+      POSTGRES_DB: aladdin
     ports:
       - "5432:5432"
     volumes:

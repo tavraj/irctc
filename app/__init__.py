@@ -8,7 +8,7 @@ blueprint = Blueprint('api', __name__, url_prefix='/api')
 
 api = Api(
     blueprint,
-    title="Pikachu Server",
+    title="Aladdin Server",
     version='1.0',
     description='flask api',
     doc='/doc'
