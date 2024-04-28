@@ -6,7 +6,6 @@ from flask_migrate import Migrate
 from flask_bcrypt import Bcrypt
 from flask_jwt_extended import JWTManager
 from flask_caching import Cache
-from prometheus_flask_exporter.multiprocess import PrometheusMetrics, UWsgiPrometheusMetrics
 from .config import config_by_name
 
 db = SQLAlchemy()
@@ -15,10 +14,10 @@ bcrypt = Bcrypt()
 jwt = JWTManager()
 cache = Cache()
 
-metrics = PrometheusMetrics.for_app_factory()
-if os.environ.get('ENV') == 'production':
-    metrics = UWsgiPrometheusMetrics.for_app_factory()
-metrics.info(name='Aladdin', description='Aladdin API', version='1.0')
+# metrics = PrometheusMetrics.for_app_factory()
+# if os.environ.get('ENV') == 'production':
+#     metrics = UWsgiPrometheusMetrics.for_app_factory()
+# metrics.info(name='Aladdin', description='Aladdin API', version='1.0')
 
 
 def create_app(config_name):
@@ -30,6 +29,6 @@ def create_app(config_name):
     bcrypt.init_app(app)
     jwt.init_app(app)
     cache.init_app(app, config=app_config.CACHE_CONFIG)
-    metrics.init_app(app)
-    metrics.start_http_server(app_config.METRICS_HOST)
+    # metrics.init_app(app)
+    # metrics.start_http_server(app_config.METRICS_HOST)
     return app

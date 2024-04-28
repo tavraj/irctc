@@ -9,7 +9,7 @@ class Config:
     )
     JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY', 'ash')
     # JWT_TOKEN_LOCATION = ['cookies']
-    JWT_ACCESS_TOKEN_EXPIRES = timedelta(seconds=30)
+    JWT_ACCESS_TOKEN_EXPIRES = timedelta(seconds=300)
     PROPAGATE_EXCEPTIONS = True
     METRICS_HOST = 9100
     CACHE_CONFIG = {

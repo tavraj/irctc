@@ -2,7 +2,7 @@ import traceback
 from http import HTTPStatus
 from app.main.model.user import User
 from flask_jwt_extended import create_access_token
-
+from flask_jwt_extended import get_jwt_identity
 
 class Auth:
 
@@ -38,3 +38,8 @@ class Auth:
             'status': 'unimplemented',
             'header': data
         }, HTTPStatus.BAD_GATEWAY
+    
+    def get_current_user_id():
+    # Extract user ID from JWT token
+        user_id = get_jwt_identity()
+        return user_id
